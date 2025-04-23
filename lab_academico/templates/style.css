@@ -1,0 +1,144 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #1b0a2d;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    gap: 400px;
+  }
+  
+  .logo-container {
+    width: 600px;
+  }
+  
+  .logo-img {
+    width: 100%;
+  }
+  
+  .form-container {
+    background: #d8d8d8;
+    padding: 30px 110px;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    box-shadow: 0px 10px 20px rgba(97, 56, 160, 0.4);
+    align-items: flex-end; /* Alinha todo o conteúdo à esquerda */
+    text-align: left; /* Garante que o texto fique alinhado à esquerda */
+  }
+  
+  .form-container label,
+  .form-container input,
+  .form-container button,
+  .form-container a {
+    align-self: flex-end; /* Cada elemento começa na esquerda */
+    width: 100%; /* Mantém uma largura uniforme */
+  }
+  
+  
+  .form-container input {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(97, 56, 160, 0.3);
+  }
+  
+  .form-container button {
+    background-color: #7d5bbe;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .form-container a {
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    font-size: 0.9em;
+  }
+  
+  /* Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background: #d8d8d8;
+    padding: 30px;
+    border-radius: 40px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0px 10px 20px rgba(97, 56, 160, 0.4);
+  }
+  
+  .modal-content input,
+  .modal-content button {
+    border: none;
+    padding: 10px;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(97, 56, 160, 0.3);
+  }
+  
+  .modal-content button {
+    background-color: #7d5bbe;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .close {
+    align-self: flex-end;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    body {
+      flex-direction: column;
+      height: auto;
+      padding: 40px 20px;
+    }
+  
+    .container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+    }
+  
+    .logo-container {
+      width: 200px;
+    }
+  
+    .form-container {
+      width: 100%;
+      max-width: 320px;
+    }
+  
+    .modal-content {
+      width: 90%;
+      max-width: 320px;
+    }
+  }
+  

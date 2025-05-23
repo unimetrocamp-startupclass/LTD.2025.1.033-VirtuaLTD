@@ -1,147 +1,90 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-        }
-        .login-container {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
-        }
-        .login-container h2 {
-            margin-bottom: 20px;
-        }
-        .login-container input {
-            width: 90%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .login-container button {
-            width: 100%;
-            padding: 10px;
-            background: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .login-container button:hover {
-            background: #0056b3;
-        }
-        .register-link {
-            margin-top: 15px;
-            display: block;
-            color: #f0f0f0;
-            cursor: pointer;
-            font-family: Arial, sans-serif;
-            font-size: small;
-            background-color: #007BFF;
-            padding-top: 2%;
-            padding-bottom: 2%;
-        }
-
-        .register-link:hover {
-            background: #0056b3;
-        }
-
-        /* Estilo do modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-        .modal-content {
-            background-color: #fff;
-            margin: 10% auto;
-            padding: 20px;
-            border-radius: 8px;
-            width: 300px;
-            text-align: center;
-            box-shadow: 0 0 15px rgba(0,0,0,0.2);
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 24px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .close:hover {
-            color: black;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LTD Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script defer src="{{ url_for('static', filename='script.js') }}"></script>
 </head>
 <body>
-
-    <div class="login-container">
-        <h2>Login</h2>
-        <form action="login.php" method="POST">
-            <input type="text" name="usuario" placeholder="Usuário" required>
-            <input type="password" name="senha" placeholder="Senha" required>
-            <br><br>
-            <button type="submit">Entrar</button>
-        </form>
-        <span class="register-link" onclick="abrirModal()"><strong>Registrar-se</strong></span>
+  <div class="container">
+    <div class="logo-container">
+      <img src="{{ url_for('static', filename='img.png') }}" alt="Logo LTD" class="logo-img" />
     </div>
 
-    <!-- Modal de Registro -->
-    <div id="modalRegistro" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="fecharModal()">&times;</span>
-            <h2>Registrar-se</h2>
-            <form action="registro.php" method="POST">
-                <input type="text" name="novo_usuario" placeholder="Novo Usuário" required>
-                <br><br>
-                <input type="password" name="nova_senha" placeholder="Nova Senha" required>
-                <br><br>
-                <input type="email" name="email" placeholder="E-mail" required>
-                <br><br>
-                <input type="text" name="matricula" placeholder="Matrícula" required>
-                <br><br>
-                <button type="submit">Registrar-se</button>
-            </form>
-        </div>
+    <div class="form-container">
+      <h2>LOGIN</h2>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="mensagens">
+            {% for category, message in messages %}
+              <p class="mensagem-{{ category }}">{{ message }}</p>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      <form method="POST" action="/login">
+        <label>EMAIL</label>
+        <input type="email" name="email" required />
+      
+        <label>SENHA</label>
+        <input type="password" name="senha" required />
+      
+        <button type="submit">ENTRAR</button>
+      </form>
+      
+      
+
+      <a href="#" onclick="openModal()">REGISTRE-SE</a>
     </div>
+  </div>
 
-    <script>
-        function abrirModal() {
-            document.getElementById('modalRegistro').style.display = 'block';
-        }
+  <!-- Modal de Registro -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>REGISTRE-SE</h2>
+      <form method="POST" action="/register">
+        <label>USUÁRIO</label>
+        <input type="text" name="username" required />
+        
+        <label>EMAIL</label>
+        <input type="email" name="email" required />
+        
+        <label>R.A DO ALUNO</label>
+        <input type="text" name="ra" required />
+        
+        <label>SENHA</label>
+        <input type="password" name="password" required />
+        
+        <label>CONFIRME A SENHA</label>
+        <input type="password" name="confirm_password" required />
+        
+        <button type="submit">REGISTRE-SE</button>
+      </form>
+      
+      
+    </div>
+  </div>
 
-        function fecharModal() {
-            document.getElementById('modalRegistro').style.display = 'none';
-        }
+  <script>
+    function openModal() {
+      document.getElementById("modal").style.display = "flex";
+    }
 
-        // Fechar o modal ao clicar fora dele
-        window.onclick = function(event) {
-            const modal = document.getElementById('modalRegistro');
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
 
+    window.onclick = function(event) {
+      const modal = document.getElementById("modal");
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+  </script>
 </body>
 </html>

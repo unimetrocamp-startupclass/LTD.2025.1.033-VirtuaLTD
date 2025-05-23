@@ -4,9 +4,14 @@ import sqlite3
 from datetime import datetime
 import hashlib
 
+
+
 # Conecta com o banco ou cria o arquivo se não existir
 def conectar():
-    return sqlite3.connect('database.db')
+    conn = sqlite3.connect('database.db')
+    conn.row_factory = sqlite3.Row
+    return conn
+
 
 # Cria a tabela de usuários
 def criar_tabela():
@@ -44,9 +49,9 @@ def criar_conta(nome, email, senha, tipo):
             VALUES (?, ?, ?, ?, ?)
         ''', (nome, email, senha_criptografada, tipo, data_criacao))
         conn.commit()
-        print(f"✅ Conta de {tipo} criada com sucesso!")
+        print(f"Conta de {tipo} criada com sucesso!")
     except sqlite3.IntegrityError:
-        print("❌ Erro: email já cadastrado.")
+        print("Erro: email já cadastrado.")
     finally:
         conn.close()
 def verificar_login(email, senha, tipo_esperado=None):

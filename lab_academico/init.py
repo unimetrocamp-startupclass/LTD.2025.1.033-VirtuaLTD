@@ -1,10 +1,13 @@
-from lab_academico.config import criar_tabela, criar_conta, criar_conta_admin
+from config import criar_tabela, criar_conta, criar_conta_admin
 
 # Criar tabela
 criar_tabela()
 
 # Criar coordenador (uma vez)
 criar_conta('Carlos Coordenador', 'coordenador@email.com', 'admin123', 'coordenador')
+
+# Criar aluno (usuário comum pode fazer isso)
+criar_conta('Camila', 'camilamarinhod6@gmail.com', '123', 'aluno')
 
 # Criar aluno (usuário comum pode fazer isso)
 criar_conta('Ana Aluna', 'ana@email.com', 'senha123', 'aluno')

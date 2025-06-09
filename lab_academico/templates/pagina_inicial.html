@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Inicial</title>
+  <link rel="stylesheet" href="css/pagina_inicial.css">
+</head>
+<body>
+
+  <!-- Botão de menu (hambúrguer) -->
+  <span class="menu-btn" onclick="openMenu()">&#9776;</span>
+
+  <!-- Menu lateral -->
+  <div id="sideMenu" class="side-menu">
+    <span class="close-btn" onclick="closeMenu()">&times;</span>
+    <a href="calendario.html">Calendário</a>
+    <a href="#">NULL</a>
+    <a href="#">NULL</a>
+  </div>
+
+  <header class="topbar">
+    <div class="logo">
+      <img src="/lab_academico/templates/assets/logo1.jpg" alt="Logo">
+    </div>
+
+    <!-- Menu Desktop -->
+    <div class="nav-list">
+      <ul>
+        <li class="nav-item"><a href="calendario.html" class="nav-link">Calendario</a></li>
+        <li class="nav-item"><a href="projeto.html" class="nav-link">Projeto</a></li>
+      </ul>
+    </div>
+    <div class="login-button">
+      <a href="index.html">Entrar</a>
+    </div>
+
+    <!-- Ícone do menu mobile -->
+    <div class="mobile-menu-icon">
+      <button onclick="menuShow()">
+        <img class="icon" src="Design/menu_white_36dp.svg" alt="Ícone de menu">
+      </button>
+    </div>
+  </header>
+
+  <!-- Menu Mobile -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li class="nav-item"><a href="servicos.html" class="nav-link">Serviços</a></li>
+      <li class="nav-item"><a href="contate_nos.html" class="nav-link">Contate-nos</a></li>
+      <li class="nav-item"><a href="sobre_nos.html" class="nav-link">Sobre Nós</a></li>
+      <li class="nav-item"><a href="empresas.html" class="nav-link">Empresas</a></li>
+    </ul>
+    <div class="login-button">
+      <a href="index.html">Entrar</a>
+    </div>
+  </div>
+
+  <main class="content">
+    <!-- Caixa de alerta com link -->
+    <a href="calendario.html" style="text-decoration: none; color: inherit;">
+      <section class="alert-box">
+        <strong>CALENDÁRIO ACADÊMICO JÁ DISPONÍVEL</strong><br>
+        <span>Clique aqui e não perca a data de entrega dos projetos! Fique de olho!</span>
+      </section>
+    </a>
+
+    <section class="cards">
+      <div class="card purple">
+        <img src="assets/first1.png" alt="Imagem principal" style="width:100%; height:100%; border-radius: 20px;">
+      </div>
+      <div class="card gray">
+        <img src="assets/feira.png" alt="Feira de Estágios" style="width:100%; height:100%; border-radius: 20px;">
+      </div>
+    </section>
+
+    <img class="banner-image" src="assets/banner.png" alt="Banner do Site">
+  </main>
+
+  <!-- Scripts -->
+  <script>
+    function openMenu() {
+      document.getElementById("sideMenu").style.width = "250px";
+    }
+
+    function closeMenu() {
+      document.getElementById("sideMenu").style.width = "0";
+    }
+
+    function menuShow() {
+      const menuMobile = document.getElementById("mobileMenu");
+      menuMobile.classList.toggle("open");
+    }
+  </script>
+
+</body>
+</html>

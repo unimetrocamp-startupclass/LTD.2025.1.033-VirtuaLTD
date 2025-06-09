@@ -3,15 +3,65 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calendário Academico</title>
-  <link rel="stylesheet" href="static/calendario.css" />
+  <title>Laboratório de Tecnologia Digital</title>
+  <link rel="stylesheet" href="calendario.css" />
+  <link rel="stylesheet" href="css/pagina_inicial.css">
 </head>
 <body>
-  <header>
-    <h1>VirtuaLTD</h1>
+     <!-- Botão de menu (hambúrguer) -->
+  <span class="menu-btn" onclick="openMenu()">&#9776;</span>
+
+  <!-- Menu lateral -->
+  <div id="sideMenu" class="side-menu">
+    <span class="close-btn" onclick="closeMenu()">&times;</span>
+    <a href="calendario.html">Calendário</a>
+    <a href="#">pagina_inicial</a>
+    <a href="#">projeto</a>
+  </div>
+
+  <header class="topbar">
+    <div class="logo">
+      <img src="/lab_academico/templates/assets/logo1.jpg" alt="Logo">
+    </div>
+
+    <!-- Menu Desktop -->
+    <div class="nav-list">
+      <ul>
+        <li class="nav-item"><a href="pagina_inicial.html" class="nav-link">Página</a></li>
+        <li class="nav-item"><a href="projeto.html" class="nav-link">Projeto</a></li>
+      </ul>
+    </div>
+    <div class="login-button">
+      <a href="index.html">Entrar</a>
+    </div>
+
+    <!-- Ícone do menu mobile -->
+    <div class="mobile-menu-icon">
+      <button onclick="menuShow()">
+        <img class="icon" src="Design/menu_white_36dp.svg" alt="Ícone de menu">
+      </button>
+    </div>
   </header>
+
+  
+  
 
   <main>
     <h2>Consulte aqui o calendário do projeto</h2>
 
     <iframe src="https://calendar.google.com/calendar/embed?height=620&wkst=1&ctz=America%2FSao_Paulo&showPrint=0&showTz=0&showCalendars=0&showTabs=0&src=ODEzYmNiNTQzZWZlZTNlOGM3MWE2YmU1MWU4ODkxZGJkZTE2YTY0ZmMwNjUwZjczZTAwMWI4YTI5YWNkZWI4NkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%238E24AA" style="border-width:0" width="1000" height="620"></iframe>
+  <!-- Scripts -->
+  <script>
+    function openMenu() {
+      document.getElementById("sideMenu").style.width = "250px";
+    }
+
+    function closeMenu() {
+      document.getElementById("sideMenu").style.width = "0";
+    }
+
+    function menuShow() {
+      const menuMobile = document.getElementById("mobileMenu");
+      menuMobile.classList.toggle("open");
+    }
+  </script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laboratório de Tecnologia Digital</title>
+  <link rel="stylesheet" href="static/calendario.css" />
+  <link rel="stylesheet" href="static/cabecalho.css">
+</head>
+<body>
+  <header>
+        <nav class="nav-bar">
+            <div class="logo_card">
+                <a href="pginicial.html"><img src="static/img.png" alt="Logo"></a>
+            </div>
+            <div class="nav-list">
+                <ul>
+                    <li class="nav-item"><a href="{{ url_for('calendario') }}" class="nav-link">Calendário</a>
+</li>
+                    <li class="nav-item"><a href="{{ url_for('projetos') }}" class="nav-link">Projetos</a></li>
+                    <li class="nav-item"><a href="{{ url_for('pagina_inicial') }}" class="nav-link">Página Inicial</a></li>
+                    
+                </ul>
+            </div>
+  </header>
+
+  <main>
+    <h2>Consulte aqui o calendário do projeto</h2>
+
+    <iframe src="https://calendar.google.com/calendar/embed?height=620&wkst=1&ctz=America%2FSao_Paulo&showPrint=0&showTz=0&showCalendars=0&showTabs=0&src=ODEzYmNiNTQzZWZlZTNlOGM3MWE2YmU1MWU4ODkxZGJkZTE2YTY0ZmMwNjUwZjczZTAwMWI4YTI5YWNkZWI4NkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%238E24AA" style="border-width:0" width="1000" height="620"></iframe>
+  </main>

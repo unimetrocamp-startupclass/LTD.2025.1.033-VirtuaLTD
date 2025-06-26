@@ -1,0 +1,209 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Container principal */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 95%;
+}
+
+/* Cabeçalho */
+.header {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  padding-top: 40px;
+  border-bottom: 1px solid #ddd;
+}
+
+.header h1 {
+  color: #2c093e;
+  margin: 0;
+  font-size: 1.8em;
+}
+
+/* Botão de novo projeto */
+.btn-new-project {
+  background-color: #2c093e;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+.btn-new-project:hover {
+  background-color: #3d0e56;
+}
+
+/* Lista de projetos */
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Card de projeto individual */
+.project {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(128, 0, 128, 0.2);
+  padding: 30px;
+}
+
+/* Cabeçalho do projeto */
+.project-header {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  color: #2c093e;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.project-meta {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+/* Status do projeto */
+.project-status {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.status-ongoing {
+  background-color: #e6f7ff;
+  color: #1890ff;
+}
+
+.status-finished {
+  background-color: #f6ffed;
+  color: #52c41a;
+}
+
+/* Descrição do projeto */
+.project-description {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* Tags do projeto */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.tag {
+  background-color: #f0e6ff;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  color: #2c093e;
+  border: 1px solid #ddd;
+}
+
+/* Participantes */
+.participants {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.participants strong {
+  color: #2c093e;
+}
+
+/* Efeitos e transições */
+.project {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(128, 0, 128, 0.25);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .btn-new-project {
+    width: 100%;
+  }
+  
+  .project {
+    padding: 20px;
+  }
+  
+  .project-title {
+    font-size: 1.3rem;
+  }
+}
+
+/* Adicione no final do arquivo */
+.no-projects {
+  text-align: center;
+  padding: 40px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(128, 0, 128, 0.1);
+}
+
+.no-projects p {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 1.1em;
+}
+
+.status-andamento {
+  background-color: #e6f7ff;
+  color: #1890ff;
+}
+
+.status-finalizado {
+  background-color: #f6ffed;
+  color: #52c41a;
+}
+
+.error-message {
+  color: #d32f2f;
+  background-color: #ffebee;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-left: 4px solid #d32f2f;
+}

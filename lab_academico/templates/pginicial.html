@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Inicial</title>
+  <link rel="stylesheet" href="static/pginicial.css">
+  <link rel="stylesheet" href="static/cabecalho.css">
+</head>
+<body>
+  <header>
+        <nav class="nav-bar">
+            <div class="logo_card">
+                <a href="pginicial.html"><img src="static/img.png" alt="Logo"></a>
+            </div>
+            <div class="nav-list">
+                <ul>
+                    <li class="nav-item"><a href="{{ url_for('calendario') }}" class="nav-link">Calendário</a></li>
+                    <li class="nav-item"><a href="{{ url_for('projetos') }}" class="nav-link">Projetos</a></li>
+                    <li class="nav-item"><a href="{{ url_for('pagina_inicial') }}" class="nav-link">Página Inicial</a></li>
+                    
+                </ul>
+            </div>
+  </header>
+
+  <main class="content">
+    <section class="alert-box">
+      <strong>CALENDÁRIO ACADÊMICO JÁ DISPONÍVEL</strong><br>
+      <span>Clique aqui e não perca a data de entrega dos projetos! Fique de olho!</span>
+    </section>
+
+    <section class="cards">
+      <div class="card purple">
+        <img src="static/feira.png" alt="feira"></a>
+      </div>
+      
+      <div class="card gray">
+        <img src="static/first.png" alt="first"></a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

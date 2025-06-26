@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meus Projetos</title>
+  <link rel="stylesheet" href="/static/projinicial.css">
+  <link rel="stylesheet" href="/static/cabecalho.css">
+</head>
+<body>
+  <header>
+    <nav class="nav-bar">
+      <div class="logo_card">
+        <a href="{{ url_for('pagina_inicial') }}"><img src="/static/img.png" alt="Logo"></a>
+      </div>
+      <div class="nav-list">
+        <ul>
+          <li class="nav-item"><a href="{{ url_for('calendario') }}" class="nav-link">Calendário</a></li>
+          <li class="nav-item"><a href="{{ url_for('projetos') }}" class="nav-link">Projetos</a></li>
+          <li class="nav-item"><a href="{{ url_for('pagina_inicial') }}" class="nav-link">Página Inicial</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="header">
+      <h1>Meus Projetos</h1>
+      <a href="{{ url_for('pagina_cadastro') }}" class="btn-new-project">
+        <i class="fa-solid fa-plus"></i> Novo Projeto
+      </a>
+    </div>
+
+    <div class="project-list">
+      {% if projetos %}
+        {% for projeto in projetos %}
+          <div class="project">
+            <h2>{{ projeto[1] }}</h2>  <!-- Título -->
+            <p>Status: {{ projeto[2] }}</p>  <!-- Status -->
+            <p>Data de Início: {{ projeto[3] }}</p>  <!-- Data início -->
+            {% if projeto[4] %}
+              <p>Data de Fim: {{ projeto[4] }}</p>  <!-- Data fim (se existir) -->
+            {% endif %}
+          </div>
+        {% endfor %}
+      {% else %}
+        <p>Nenhum projeto cadastrado ainda. Clique em "Novo Projeto" para começar.</p>
+      {% endif %}
+    </div>
+  </div>
+</body>
+</html>

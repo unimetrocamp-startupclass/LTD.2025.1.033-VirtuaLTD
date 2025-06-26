@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="/static/stylesproj.css" />
+  <link rel="stylesheet" href="/static/cabecalho.css">
+
+  <title>Criar Projeto</title>
+</head>
+<body>
+  <main class="form-container">
+    <div class="form-header">
+      <h1 class="form-title">Cadastrar projeto</h1>
+      <!-- Esse botão de cima é apenas decorativo, não interfere no submit -->
+      <button type="button" class="btn-default">
+        <i class="fa-solid fa-circle-right"></i>
+      </button>
+    </div>
+
+    <!-- Formulário com action correto e botão type="submit" -->
+    <form action="/salvar" method="POST" id="form-project">
+      <div class="input-container">
+        <div class="input-box">
+          <label for="project-title" class="form-label">Título</label>
+          <input
+            type="text"
+            id="project-title"
+            name="project_title"
+            placeholder="Digite o título do projeto"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <div class="input-box">
+          <label for="project-description" class="form-label">Descrição do projeto</label>
+          <input
+            type="text"
+            id="project-description"
+            name="project_description"
+            placeholder="Adicione uma descrição para o seu projeto"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <div class="input-box">
+          <label for="project-start-date" class="form-label">Data de início</label>
+          <input
+            type="date"
+            id="project-start-date"
+            name="project_start_date"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <div class="input-box">
+          <label for="project-status" class="form-label">Qual o status do seu projeto?</label>
+          <select
+            id="project-status"
+            name="project_status"
+            class="form-control"
+            required
+          >
+            <option value="" disabled selected>Selecione o status</option>
+            <option value="andamento">Em andamento</option>
+            <option value="finalizado">Finalizado</option>
+          </select>
+        </div>
+
+        <div class="input-box" id="end-date-container" style="display: none;">
+          <label for="project-end-date" class="form-label">Data de término</label>
+          <input
+            type="date"
+            id="project-end-date"
+            name="project_end_date"
+            class="form-control"
+          />
+        </div>
+
+        <div class="input-box">
+          <label for="developer-name" class="form-label">Desenvolvedor</label>
+          <input
+            type="text"
+            id="developer-name"
+            name="developer_name"
+            placeholder="Digite o nome do desenvolvedor"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <div class="input-box">
+          <label for="client-name" class="form-label">Cliente</label>
+          <input
+            type="text"
+            id="client-name"
+            name="client_name"
+            placeholder="Digite o nome do cliente"
+            class="form-control"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="input-container participants-section">
+        <div id="participants-container">
+          <div class="participant input-box">
+            <label for="participant-name-0" class="form-label">Nome do participante</label>
+            <input
+              type="text"
+              id="participant-name-0"
+              name="participant_name[]"
+              placeholder="Digite o nome"
+              class="form-control"
+              
+            />
+
+            <label for="participant-role-0" class="form-label">Função do participante</label>
+            <select
+              id="participant-role-0"
+              name="participant_role[]"
+              class="form-control"
+              
+            >
+              <option value="" disabled selected>Selecione a função</option>
+              <option value="Desenvolvedor">Desenvolvedor</option>
+              <option value="Cliente">Cliente</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="button" id="add-participant-btn" class="btn-default">
+          <i class="fa-solid fa-user-plus"></i> Adicionar participante
+        </button>
+      </div>
+
+      <div class="form-footer">
+        <!-- Botão de envio corrigido -->
+        <button type="submit" class="btn-default">
+          <i class="fa-solid fa-check"></i> Cadastrar Projeto
+        </button>
+      </div>
+    </form>
+  </main>
+
+  <script src="/static/scriptprojeto.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/v4-shims.min.js"></script>
+</body>
+</html>
